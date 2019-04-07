@@ -5,13 +5,15 @@ import org.goafabric.messageserver.logic.Sender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest//(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@ContextConfiguration
 @RunWith(SpringRunner.class)
+@Import(TestConfiguration.class)
 @Slf4j
-public class SenderTest {
+public class SenderIT {
     @Autowired
     private Sender sender;
 
