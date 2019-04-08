@@ -1,6 +1,7 @@
 
 package org.goafabric.messageserver;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jms.annotation.EnableJms;
 
@@ -9,7 +10,7 @@ import org.springframework.jms.annotation.EnableJms;
 public class Application {
 
     public static void main(String[] args) {
-        System.out.println("yo");
+        SpringApplication.run(Application.class, args);
     }
 
 }

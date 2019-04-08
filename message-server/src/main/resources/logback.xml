@@ -14,31 +14,11 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <logger name="org.springframework.web" level="DEBUG" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
-    <logger name="org.springframework.security" level="WARN" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
-    <logger name="AuditLog" level="INFO" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
     <logger name="org.goafabric" level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <logger name="com.netflix" level="WARN" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
-    <logger name="org.flywaydb.core" level="DEBUG" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
-    <root level="WARN">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
