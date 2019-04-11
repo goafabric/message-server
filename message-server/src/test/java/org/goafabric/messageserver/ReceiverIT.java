@@ -18,9 +18,6 @@ public class ReceiverIT {
     @Test
     public void test() throws InterruptedException {
         sender.sendMessage();
-
-        while (true) {
-
-        }
+        Thread.sleep(5000);
     }
 }
