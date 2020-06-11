@@ -1,9 +1,8 @@
 package org.goafabric.messageserver;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.messageserver.dto.MyMessage;
-import org.goafabric.messageserver.dto.Person;
-import org.goafabric.messageserver.logic.MessagePublisher;
+import org.goafabric.messageserver.publisher.GoaMessage;
+import org.goafabric.messageserver.publisher.MessagePublisher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,10 @@ public class SendAndReceiveIT {
 
     @Test
     public void test() throws InterruptedException {
-        messagePublisher.publish(new MyMessage("PERSON_OPEN", "1", new Person()));
-        Thread.sleep(5000);
+        messagePublisher.publish(new GoaMessage("patient.open", "100"));
+        messagePublisher.publish(new GoaMessage("prescription.open", "1000"));
+        messagePublisher.publish(new GoaMessage("prescription.close", "1000"));
+        messagePublisher.publish(new GoaMessage("patient.close", "100"));
+        Thread.sleep(2000);
     }
 }

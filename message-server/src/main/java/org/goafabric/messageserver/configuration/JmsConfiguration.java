@@ -1,15 +1,14 @@
 package org.goafabric.messageserver.configuration;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.extern.slf4j.Slf4j;
+import org.goafabric.messageserver.publisher.MessagePublisher;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
@@ -44,5 +43,14 @@ public class JmsConfiguration {
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName("_type");
         return converter;
+    }
+
+    @Bean
+    public MessagePublisher jmsMessagePublisher(JmsTemplate jmsTemplate) {
+        return message -> {
+            log.info("Sending message with topic {} and id {}"
+                    , message.getTopic(), message.getReferenceId());
+            jmsTemplate.convertAndSend(message.getTopic(), message);
+        };
     }
 }
