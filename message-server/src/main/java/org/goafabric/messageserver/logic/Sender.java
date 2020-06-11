@@ -15,8 +15,8 @@ public class Sender {
     public void sendMessage() {
         log.info("sending email");
         jmsTemplate.convertAndSend("mailbox",
-                new Email("info@example.com", "Hello"));
-
+                new Email("1", "info@example.com", "Hello")
+        );
     }
 
 }
