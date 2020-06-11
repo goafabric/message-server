@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest//(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @RunWith(SpringRunner.class)
 @Slf4j
-public class SendAndReceiveIT {
+public class ClientSendAndReceiveIT {
     @Autowired
     private MessagePublisher messagePublisher;
 

@@ -1,4 +1,4 @@
-package org.goafabric.messageserver.adapter;
+package org.goafabric.messageserver.subscriber;
 
 import lombok.extern.slf4j.Slf4j;
 import org.goafabric.messageserver.publisher.GoaMessage;
