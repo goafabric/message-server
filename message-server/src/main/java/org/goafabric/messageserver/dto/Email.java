@@ -1,4 +1,4 @@
-package org.goafabric.messageserver;
+package org.goafabric.messageserver.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

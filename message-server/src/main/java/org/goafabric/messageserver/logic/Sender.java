@@ -1,7 +1,7 @@
 package org.goafabric.messageserver.logic;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.messageserver.Email;
+import org.goafabric.messageserver.dto.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
