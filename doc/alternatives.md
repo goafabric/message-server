@@ -8,7 +8,7 @@
 - No easy programatic subscribe to events
 - Not well documented
 
-#AMQP with RabbitMQ (Bronze Age)
+#AMQP with RabbitMQ (Iron Age)
 ##PRO
 - Most Used Message Broker
 - Focus an QOS and Delivery Guarantees
