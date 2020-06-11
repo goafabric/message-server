@@ -11,6 +11,6 @@
 
     <modules>
         <module>message-client</module>
-        <module>message-server</module>
+        <module>message-adapter</module>
     </modules>
 </project>
