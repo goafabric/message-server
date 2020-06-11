@@ -1,3 +1,4 @@
+/*
 package org.goafabric.messageserver;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -41,3 +42,4 @@ public class SenderConfiguration {
         return jmsTemplate;
     }
 }
+*/
