@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class Sender {
+public class MessagePublisher {
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    public void sendMessage(MyMessage message) {
+    public void publish(MyMessage message) {
         log.info("sending message with topic {}", message.getTopic());
         jmsTemplate.convertAndSend(message.getTopic(), message);
     }
