@@ -19,7 +19,7 @@ public class SendAndReceiveIT {
 
     @Test
     public void test() throws InterruptedException {
-        messagePublisher.publish(new MyMessage("1", "PERSON_OPEN", new Person()));
+        messagePublisher.publish(new MyMessage("PERSON_OPEN", "1", new Person()));
         Thread.sleep(5000);
     }
 }

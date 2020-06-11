@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MyMessage {
-    private String referenceId;
     private String topic;
+    private String referenceId;
     private Object object;
 }
