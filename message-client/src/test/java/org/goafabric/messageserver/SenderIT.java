@@ -1,3 +1,4 @@
+/*
 package org.goafabric.messageserver;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,3 +27,4 @@ public class SenderIT {
         }
     }
 }
+ */
