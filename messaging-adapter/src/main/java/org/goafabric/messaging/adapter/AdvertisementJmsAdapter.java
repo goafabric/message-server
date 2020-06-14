@@ -1,4 +1,3 @@
-/*
 package org.goafabric.messaging.adapter;
 
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class AdvertisementJMSAdapter {
+public class AdvertisementJmsAdapter {
     @Autowired
     private MessagePublisher messagePublisher;
 
@@ -48,4 +47,3 @@ public class AdvertisementJMSAdapter {
     }
 
 }
-*/

@@ -1,4 +1,3 @@
-/*
 package org.goafabric.messaging.subscriber;
 
 import lombok.extern.slf4j.Slf4j;
@@ -15,4 +14,3 @@ public class BannerJmsSubscriber {
                 , message.getTopic(), message.getReferenceId());
     }
 }
- */
