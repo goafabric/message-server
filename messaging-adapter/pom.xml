@@ -15,10 +15,10 @@
     <dependencies>
         <dependency>
             <groupId>org.goafabric</groupId>
-            <!--
             <artifactId>messageing-core-jms</artifactId>
-            -->
+            <!--
             <artifactId>messageing-core-amqp</artifactId>
+            -->
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
