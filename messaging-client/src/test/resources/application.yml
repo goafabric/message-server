@@ -1,4 +1,6 @@
 spring:
   activemq:
+    packages:
+      trust-all: true
     in-memory: true
 #    broker-url: tcp://localhost:61616
