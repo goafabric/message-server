@@ -3,6 +3,7 @@ package org.goafabric.messageserver.adapter;
 import lombok.extern.slf4j.Slf4j;
 import org.goafabric.messageserver.publisher.EventMessage;
 import org.goafabric.messageserver.publisher.MessagePublisher;
+import org.goafabric.messageserver.publisher.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
@@ -27,7 +28,7 @@ public class AdvertisementAdapter {
     public void prescriptionOpen(EventMessage message) {
         logMessage(message);
         messagePublisher.publish(new EventMessage("banner.show",
-                message.getReferenceId()));
+                message.getReferenceId(), new String("YO")));
     }
 
     @JmsListener(destination = "prescription.close")
@@ -38,6 +39,11 @@ public class AdvertisementAdapter {
     private void logMessage(EventMessage message) {
         log.info("Received message with topic {} and id {}"
                 , message.getTopic(), message.getReferenceId());
+
+        if (message.getObject() instanceof Patient) {
+            final Patient patient = (Patient) message.getObject();
+            log.info("Got Patient object {}", patient.toString());
+        }
     }
 
 }

@@ -3,6 +3,7 @@ package org.goafabric.messageserver;
 import lombok.extern.slf4j.Slf4j;
 import org.goafabric.messageserver.publisher.EventMessage;
 import org.goafabric.messageserver.publisher.MessagePublisher;
+import org.goafabric.messageserver.publisher.Patient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,10 @@ public class AdapterSendAndReceiveIT {
 
     @Test
     public void test() throws InterruptedException {
-        messagePublisher.publish(new EventMessage("patient.open", "100"));
-        messagePublisher.publish(new EventMessage("prescription.open", "1000"));
-        messagePublisher.publish(new EventMessage("prescription.close", "1000"));
-        messagePublisher.publish(new EventMessage("patient.close", "100"));
+        messagePublisher.publish(new EventMessage("patient.open", "100", new Patient("homer", "simpson")));
+        messagePublisher.publish(new EventMessage("prescription.open", "1000", new Patient("homer", "simpson")));
+        messagePublisher.publish(new EventMessage("prescription.close", "1000", new Patient("homer", "simpson")));
+        messagePublisher.publish(new EventMessage("patient.close", "100", new Patient("homer", "simpson")));
         Thread.sleep(2000);
     }
 }
