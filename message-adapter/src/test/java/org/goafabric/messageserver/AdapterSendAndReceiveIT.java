@@ -3,7 +3,7 @@ package org.goafabric.messageserver;
 import lombok.extern.slf4j.Slf4j;
 import org.goafabric.messageserver.publisher.EventMessage;
 import org.goafabric.messageserver.publisher.MessagePublisher;
-import org.goafabric.messageserver.publisher.Patient;
+import org.goafabric.messageserver.dto.Patient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,17 @@ public class AdapterSendAndReceiveIT {
 
     @Test
     public void test() throws InterruptedException {
-        messagePublisher.publish(new EventMessage("patient.open", "100", new Patient("homer", "simpson")));
-        messagePublisher.publish(new EventMessage("prescription.open", "1000", new Patient("homer", "simpson")));
-        messagePublisher.publish(new EventMessage("prescription.close", "1000", new Patient("homer", "simpson")));
-        messagePublisher.publish(new EventMessage("patient.close", "100", new Patient("homer", "simpson")));
+        final Patient patient = Patient.builder()
+                .firstName("Homer").lastName("Simpson").build();
+
+        messagePublisher.publish(EventMessage.builder()
+                .topic("patient.open").referenceId("100").object(patient).build());
+        messagePublisher.publish(EventMessage.builder()
+                .topic("prescription.open").referenceId("1000").build());
+        messagePublisher.publish(EventMessage.builder()
+                .topic("prescription.close").referenceId("1000").build());
+        messagePublisher.publish(EventMessage.builder()
+                .topic("patient.close").referenceId("100").build());
         Thread.sleep(2000);
     }
 }
