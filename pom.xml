@@ -14,6 +14,7 @@
         <module>messaging-adapter</module>
         <module>messageing-core-jms</module>
         <module>messageing-core</module>
+        <module>messageing-core-amqp</module>
     </modules>
 
 

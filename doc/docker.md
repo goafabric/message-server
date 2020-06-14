@@ -12,7 +12,7 @@ http://localhost:8161/admin/
 admin/admin 
 
 #RabbitMQ
-docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 \
+docker run -d --hostname my-rabbit --name some-rabbit -p 5672:5672 -p 15672:15672 \
 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin rabbitmq:3-management
 
 http://localhost:15672/admin/
