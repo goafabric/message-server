@@ -28,7 +28,7 @@ public class AdvertisementAdapter {
     public void prescriptionOpen(EventMessage message) {
         logMessage(message);
         messagePublisher.publish(new EventMessage("banner.show",
-                message.getReferenceId(), new String("YO")));
+                message.getReferenceId(), null));
     }
 
     @JmsListener(destination = "prescription.close")
