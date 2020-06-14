@@ -38,20 +38,6 @@ public class JmsConfiguration {
         };
     }
 
-    /*
-    @Bean // Serialize message content to json using TextMessage
-    public MessageConverter jacksonJmsMessageConverter() {
-        MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-
-        converter.setTypeIdPropertyName("_typeId");
-        Map<String, Class<?>> typeIdMappings = new HashMap<String, Class<?>>();
-        typeIdMappings.put("event", EventMessage.class);
-        converter.setTypeIdMappings(typeIdMappings);
-
-        return converter;
-    }
-     */
-
     @Bean
     public MessagePublisher jmsMessagePublisher(JmsTemplate jmsTemplate) {
         return message -> {
