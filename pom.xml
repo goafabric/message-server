@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>message-client</module>
-        <module>message-adapter</module>
+        <module>messaging-client</module>
+        <module>messaging-adapter</module>
     </modules>
 
 
