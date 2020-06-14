@@ -1,7 +1,7 @@
 package org.goafabric.messageserver.adapter;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.messageserver.publisher.GoaMessage;
+import org.goafabric.messageserver.publisher.EventMessage;
 import org.goafabric.messageserver.publisher.MessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
@@ -14,28 +14,28 @@ public class AdvertisementAdapter {
     private MessagePublisher messagePublisher;
 
     @JmsListener(destination = "patient.open")
-    public void patientOpen(GoaMessage message) {
+    public void patientOpen(EventMessage message) {
         logMessage(message);
     }
 
     @JmsListener(destination = "patient.close")
-    public void patientClose(GoaMessage message) {
+    public void patientClose(EventMessage message) {
         logMessage(message);
     }
 
     @JmsListener(destination = "prescription.open")
-    public void prescriptionOpen(GoaMessage message) {
+    public void prescriptionOpen(EventMessage message) {
         logMessage(message);
-        messagePublisher.publish(new GoaMessage("banner.show",
+        messagePublisher.publish(new EventMessage("banner.show",
                 message.getReferenceId()));
     }
 
     @JmsListener(destination = "prescription.close")
-    public void prescriptionClose(GoaMessage message) {
+    public void prescriptionClose(EventMessage message) {
         logMessage(message);
     }
 
-    private void logMessage(GoaMessage message) {
+    private void logMessage(EventMessage message) {
         log.info("Received message with topic {} and id {}"
                 , message.getTopic(), message.getReferenceId());
     }

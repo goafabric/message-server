@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GoaMessage {
+public class EventMessage {
     private String topic;
     private String referenceId;
     //private Object object;
