@@ -1,7 +1,7 @@
-package org.goafabric.messageserver.configuration;
+package org.goafabric.messaging.configuration;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.messageserver.publisher.MessagePublisher;
+import org.goafabric.messaging.publisher.MessagePublisher;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

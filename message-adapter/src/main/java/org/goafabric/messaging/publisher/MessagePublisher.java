@@ -1,4 +1,4 @@
-package org.goafabric.messageserver.publisher;
+package org.goafabric.messaging.publisher;
 
 import org.springframework.stereotype.Component;
 

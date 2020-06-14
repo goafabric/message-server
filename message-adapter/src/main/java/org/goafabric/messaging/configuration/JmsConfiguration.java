@@ -1,8 +1,7 @@
-package org.goafabric.messageserver.configuration;
+package org.goafabric.messaging.configuration;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.messageserver.publisher.EventMessage;
-import org.goafabric.messageserver.publisher.MessagePublisher;
+import org.goafabric.messaging.publisher.MessagePublisher;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,17 +10,12 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
-import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
-import org.springframework.jms.support.converter.MessageConverter;
-import org.springframework.jms.support.converter.MessageType;
 import org.springframework.util.ErrorHandler;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
-import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 @EnableJms

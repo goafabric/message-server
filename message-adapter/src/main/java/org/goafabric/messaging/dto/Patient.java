@@ -1,4 +1,4 @@
-package org.goafabric.messageserver.publisher;
+package org.goafabric.messaging.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,8 +11,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventMessage implements Serializable {
-    private String topic;
-    private String referenceId;
-    private Object object;
+public class Patient implements Serializable {
+    private String firstName;
+    private String lastName;
 }

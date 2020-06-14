@@ -1,9 +1,9 @@
-package org.goafabric.messageserver.adapter;
+package org.goafabric.messaging.adapter;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.messageserver.publisher.EventMessage;
-import org.goafabric.messageserver.publisher.MessagePublisher;
-import org.goafabric.messageserver.dto.Patient;
+import org.goafabric.messaging.publisher.EventMessage;
+import org.goafabric.messaging.publisher.MessagePublisher;
+import org.goafabric.messaging.dto.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;

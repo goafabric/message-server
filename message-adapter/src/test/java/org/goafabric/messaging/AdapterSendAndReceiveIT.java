@@ -1,9 +1,9 @@
-package org.goafabric.messageserver;
+package org.goafabric.messaging;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.messageserver.publisher.EventMessage;
-import org.goafabric.messageserver.publisher.MessagePublisher;
-import org.goafabric.messageserver.dto.Patient;
+import org.goafabric.messaging.publisher.EventMessage;
+import org.goafabric.messaging.publisher.MessagePublisher;
+import org.goafabric.messaging.dto.Patient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
