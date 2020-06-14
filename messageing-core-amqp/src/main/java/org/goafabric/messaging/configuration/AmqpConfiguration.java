@@ -10,12 +10,28 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class AmqpConfiguration {
     @Bean
-    public MessagePublisher jmsMessagePublisher(RabbitTemplate rabbitTemplate) {
+    public MessagePublisher messagePublisher(RabbitTemplate rabbitTemplate) {
         return message -> {
             log.info("Sending message with topic {} and id {}"
                     , message.getTopic(), message.getReferenceId());
             rabbitTemplate.convertAndSend(message.getTopic(), message);
         };
-
     }
+
+    /*
+    @Bean
+public AmqpAdmin amqpAdmin() {
+    return new RabbitAdmin(connectionFactory);
+}
+Then you add it to your service:
+
+@Autowired
+private AmqpAdmin admin;
+Finally you can use it to create queues and bindings.
+
+Queue queue = new Queue(queueName, durable, false, false);
+Binding binding = new Binding(queueName, Binding.DestinationType.QUEUE, EXCHANGE, routingKey, null);
+admin.declareQueue(queue);
+admin.declareBinding(binding);
+     */
 }
