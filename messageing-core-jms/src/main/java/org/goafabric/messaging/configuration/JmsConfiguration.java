@@ -9,12 +9,13 @@ import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
-import org.springframework.jms.support.converter.MessageConverter;
-import org.springframework.jms.support.converter.MessageType;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.util.ErrorHandler;
 
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 
 @Configuration
 @EnableJms
@@ -37,13 +38,19 @@ public class JmsConfiguration {
         };
     }
 
+    /*
     @Bean // Serialize message content to json using TextMessage
     public MessageConverter jacksonJmsMessageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-        converter.setTargetType(MessageType.TEXT);
-        converter.setTypeIdPropertyName("_type");
+
+        converter.setTypeIdPropertyName("_typeId");
+        Map<String, Class<?>> typeIdMappings = new HashMap<String, Class<?>>();
+        typeIdMappings.put("event", EventMessage.class);
+        converter.setTypeIdMappings(typeIdMappings);
+
         return converter;
     }
+     */
 
     @Bean
     public MessagePublisher jmsMessagePublisher(JmsTemplate jmsTemplate) {
@@ -51,6 +58,13 @@ public class JmsConfiguration {
             log.info("Sending message with topic {} and id {}"
                     , message.getTopic(), message.getReferenceId());
             jmsTemplate.convertAndSend(message.getTopic(), message);
+            jmsTemplate.send(message.getTopic(), new MessageCreator() {
+                @Override
+                public Message createMessage(Session session) throws JMSException {
+                    return session.createObjectMessage(message);
+                }
+            });
         };
+
     }
 }

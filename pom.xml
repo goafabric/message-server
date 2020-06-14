@@ -12,6 +12,7 @@
     <modules>
         <module>messaging-client</module>
         <module>messaging-adapter</module>
+        <module>messageing-core-jms</module>
     </modules>
 
 
