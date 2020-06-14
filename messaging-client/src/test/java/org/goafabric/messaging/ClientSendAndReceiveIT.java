@@ -13,7 +13,7 @@ import org.goafabric.messaging.dto.Patient;
 @SpringBootTest//(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @RunWith(SpringRunner.class)
 @Slf4j
-public class ClientSendAndReceiveNRIT {
+public class ClientSendAndReceiveIT {
     @Autowired
     private MessagePublisher messagePublisher;
 

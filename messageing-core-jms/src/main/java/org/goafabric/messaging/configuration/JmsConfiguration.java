@@ -58,12 +58,8 @@ public class JmsConfiguration {
             log.info("Sending message with topic {} and id {}"
                     , message.getTopic(), message.getReferenceId());
             jmsTemplate.convertAndSend(message.getTopic(), message);
-            jmsTemplate.send(message.getTopic(), new MessageCreator() {
-                @Override
-                public Message createMessage(Session session) throws JMSException {
-                    return session.createObjectMessage(message);
-                }
-            });
+            //jmsTemplate.send(message.getTopic(),
+              //      session -> session.createObjectMessage(message));
         };
 
     }
