@@ -1,6 +1,7 @@
-- Send Objects
-- Builder for Objects
-- Seperate Artifacts for client, and adapter
+- Object send without Serialisable
+- Meta Annotation for JMSListener, RabbitListerner
 
-- rabbitmq, aqmp
+- Create AMQP Quues Programmtically
+- Frontend
+
 - kafka
