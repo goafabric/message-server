@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class AdvertisementAdapter {
+public class AdvertisementJMSAdapter {
     @Autowired
     private MessagePublisher messagePublisher;
 
