@@ -4,5 +4,7 @@
 - Create AMQP Quues Programmtically
 - Frontend
 
+- Qeue Names with ENUM
+
 - artemis
 - kafka
