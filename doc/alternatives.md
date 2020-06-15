@@ -28,3 +28,10 @@
 - Not a real Message Broker, more a Data Streamer
 - Needs a Zoo (literally) of Infrastructure Components
 
+
+##Table
+             |  ActiveMQ | RabbitMQ | Kafka
+KISS         |  ++       | +        | --
+Flexibility  |  -        | +        | +
+Future Proof |  -        | +        | +
+Performance  |  o        | +        | ++
