@@ -30,8 +30,9 @@
 
 
 ##Table
-             |  ActiveMQ | RabbitMQ | Kafka
-KISS         |  ++       | +        | --
-Flexibility  |  -        | +        | +
-Future Proof |  -        | +        | +
-Performance  |  o        | +        | ++
+              |  ActiveMQ | RabbitMQ | Kafka
+KISS          |  ++       | +        | --
+Flexibility   |  -        | +        | +
+Future Proof  |  -        | +        | +
+Low Resources |  -        | ++       | -
+Performance   |  o        | +        | ++
