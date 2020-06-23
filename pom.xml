@@ -12,9 +12,9 @@
     <modules>
         <module>messaging-client</module>
         <module>messaging-adapter</module>
-        <module>messageing-core-jms</module>
-        <module>messageing-core</module>
-        <module>messageing-core-amqp</module>
+        <module>messaging-core-jms</module>
+        <module>messaging-core</module>
+        <module>messaging-core-amqp</module>
     </modules>
 
 
