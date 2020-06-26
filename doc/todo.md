@@ -1,10 +1,8 @@
-Frontend
-Docker
 password encryption
 Artemis
 
 ---
+- Create AMQP Queues Programmtically
 - Object send without Serialisable
-- Create AMQP Quues Programmtically
 
 - Kafka
