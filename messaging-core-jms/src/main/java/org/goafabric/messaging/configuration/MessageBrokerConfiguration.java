@@ -41,7 +41,7 @@ public class MessageBrokerConfiguration {
         return message -> {
             log.info("Sending message with topic {} and id {}"
                     , message.getQueue(), message.getReferenceId());
-            jmsTemplate.convertAndSend(message.getQueue(), message);
+            jmsTemplate.convertAndSend(message.getQueue().toString(), message);
             //jmsTemplate.send(message.getTopic(),
               //      session -> session.createObjectMessage(message));
         };

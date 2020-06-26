@@ -1,6 +1,7 @@
 package org.goafabric.messaging;
 
 import lombok.extern.slf4j.Slf4j;
+import org.goafabric.MessageQueue;
 import org.goafabric.messaging.publisher.EventMessage;
 import org.goafabric.messaging.publisher.MessagePublisher;
 import org.junit.Test;
@@ -23,13 +24,13 @@ public class ClientSendAndReceiveIT {
                 .firstName("Homer").lastName("Simpson").build();
 
         messagePublisher.publish(EventMessage.builder()
-                .queue("patient.open").referenceId("100").object(patient).build());
+                .queue(MessageQueue.PATIENT_OPEN).referenceId("100").object(patient).build());
         messagePublisher.publish(EventMessage.builder()
-                .queue("prescription.open").referenceId("1000").build());
+                .queue(MessageQueue.PRESCRIPTION_OPEN).referenceId("1000").build());
         messagePublisher.publish(EventMessage.builder()
-                .queue("prescription.close").referenceId("1000").build());
+                .queue(MessageQueue.PRESCRIPTION_CLOSE).referenceId("1000").build());
         messagePublisher.publish(EventMessage.builder()
-                .queue("patient.close").referenceId("100").build());
+                .queue(MessageQueue.PATIENT_OPEN).referenceId("100").build());
         Thread.sleep(2000);
     }
 }

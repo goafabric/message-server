@@ -1,6 +1,7 @@
 package org.goafabric.messaging.adapter;
 
 import lombok.extern.slf4j.Slf4j;
+import org.goafabric.MessageQueue;
 import org.goafabric.messaging.dto.Patient;
 import org.goafabric.messaging.publisher.EventMessage;
 import org.goafabric.messaging.publisher.MessagePublisher;
@@ -15,28 +16,28 @@ public class AdvertisementAdapter {
     @Autowired
     private MessagePublisher messagePublisher;
 
-    @JmsListener(destination = "patient.open")
-    @RabbitListener(queues = "patient.open")
+    @JmsListener(destination = MessageQueue.PATIENT_OPEN)
+    @RabbitListener(queues = MessageQueue.PATIENT_OPEN)
     public void patientOpen(EventMessage message) {
         logMessage(message);
     }
 
-    @JmsListener(destination = "patient.close")
-    @RabbitListener(queues = "patient.close")
+    @JmsListener(destination = MessageQueue.PATIENT_CLOSE)
+    @RabbitListener(queues = MessageQueue.PATIENT_CLOSE)
     public void patientClose(EventMessage message) {
         logMessage(message);
     }
 
-    @JmsListener(destination = "prescription.open")
-    @RabbitListener(queues = "prescription.open")
+    @JmsListener(destination = MessageQueue.PRESCRIPTION_OPEN)
+    @RabbitListener(queues = MessageQueue.PRESCRIPTION_OPEN)
     public void prescriptionOpen(EventMessage message) {
         logMessage(message);
         messagePublisher.publish(new EventMessage("banner.show",
                 message.getReferenceId(), null));
     }
 
-    @JmsListener(destination = "prescription.close")
-    @RabbitListener(queues = "prescription.close")
+    @JmsListener(destination = MessageQueue.PRESCRIPTION_CLOSE)
+    @RabbitListener(queues = MessageQueue.PRESCRIPTION_CLOSE)
     public void prescriptionClose(EventMessage message) {
         logMessage(message);
     }
