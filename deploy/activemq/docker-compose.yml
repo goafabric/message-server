@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  activemq:
+    container_name: activemq-${STACK_NAME} #be extra carefull here container name must NOT contain an underscore _
+    image: rmohr/activemq:latest
+    restart: 'no'
+    ports:
+      - 61616:61616
+      - 8161:8161

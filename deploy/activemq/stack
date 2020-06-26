@@ -1,0 +1,4 @@
+#!/bin/bash
+export STACK_NAME="activemq-stack"
+export SERVICE_MEM="256m"
+./stack_util ${STACK_NAME} $1
