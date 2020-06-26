@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Slf4j
-public class AmqpConfiguration {
+public class MessageBrokerConfiguration {
+    public static final String excludeClass = "org.springframework.boot.autoconfigure.jms.activemq.ActiveMQAutoConfiguration";
+
     @Bean
     public MessagePublisher messagePublisher(RabbitTemplate rabbitTemplate) {
         return message -> {

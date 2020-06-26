@@ -16,7 +16,9 @@ import javax.jms.ConnectionFactory;
 @Configuration
 @EnableJms
 @Slf4j
-public class JmsConfiguration {
+public class MessageBrokerConfiguration {
+    public static final String excludeClass = "org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration";
+
     @Bean
     public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory,
                                                     DefaultJmsListenerContainerFactoryConfigurer configurer) {
