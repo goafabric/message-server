@@ -1,3 +1,10 @@
+Frontend
+Docker
+password encryption
+Artemis
+Qeue Names with ENUM
+
+---
 - Object send without Serialisable
 - Meta Annotation for JMSListener, RabbitListerner
 
@@ -8,5 +15,3 @@
 
 - artemis
 - kafka
-
-- password encryption
