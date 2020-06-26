@@ -8,3 +8,5 @@
 
 - artemis
 - kafka
+
+- password encryption
