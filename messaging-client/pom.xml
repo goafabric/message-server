@@ -13,6 +13,7 @@
 
     <artifactId>messaging-client</artifactId>
 
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -25,10 +26,7 @@
 
         <dependency>
             <groupId>org.goafabric</groupId>
-            <artifactId>messaging-core-jms</artifactId>
-            <!--
-            <artifactId>messaging-core-amqp</artifactId>
-            -->
+            <artifactId>${messaging-core-type}</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

@@ -35,6 +35,23 @@
         <docker.image.prefix>docker.io/goafabric</docker.image.prefix>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>jms</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <messaging-core-type>messaging-core-jms</messaging-core-type>
+            </properties>
+        </profile>
+        <profile>
+            <id>amqp</id>
+            <properties>
+                <messaging-core-type>messaging-core-amqp</messaging-core-type>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencyManagement>
         <dependencies>
