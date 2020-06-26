@@ -1,10 +1,44 @@
-version: "3"
+version: "3.7"
 
 services:
   activemq:
-    container_name: activemq-${STACK_NAME} #be extra carefull here container name must NOT contain an underscore _
+    container_name: activemq-${STACK_NAME}
     image: rmohr/activemq:latest
     restart: 'no'
     ports:
       - 61616:61616
       - 8161:8161
+    networks:
+      - messaging-net
+
+  messaging-client:
+    depends_on:
+    - activemq
+    container_name: messsaging-client-${STACK_NAME}
+    image: goafabric/messaging-client:1.0.0-SNAPSHOT
+    restart: 'no'
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Europe/Berlin
+      - spring.activemq.broker-url=tcp://activemq-messaging-stack:61616
+
+    healthcheck:
+      test: "curl -f http://localhost:8080/actuator/health || exit 1"
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+    volumes:
+      - tmp:/tmp
+
+    networks:
+      - messaging-net
+
+volumes:
+  tmp:
+
+networks:
+  messaging-net:
+    driver: bridge
+    name: messaging-net
