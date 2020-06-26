@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>messageing-core-amqp</artifactId>
+    <artifactId>messaging-core-amqp</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.goafabric</groupId>
-            <artifactId>messageing-core</artifactId>
+            <artifactId>messaging-core</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
