@@ -23,13 +23,13 @@ public class AdapterSendAndReceiveIT {
                 .firstName("Homer").lastName("Simpson").build();
 
         messagePublisher.publish(EventMessage.builder()
-                .topic("patient.open").referenceId("100").object(patient).build());
+                .queue("patient.open").referenceId("100").object(patient).build());
         messagePublisher.publish(EventMessage.builder()
-                .topic("prescription.open").referenceId("1000").build());
+                .queue("prescription.open").referenceId("1000").build());
         messagePublisher.publish(EventMessage.builder()
-                .topic("prescription.close").referenceId("1000").build());
+                .queue("prescription.close").referenceId("1000").build());
         messagePublisher.publish(EventMessage.builder()
-                .topic("patient.close").referenceId("100").build());
+                .queue("patient.close").referenceId("100").build());
         Thread.sleep(2000);
     }
 }

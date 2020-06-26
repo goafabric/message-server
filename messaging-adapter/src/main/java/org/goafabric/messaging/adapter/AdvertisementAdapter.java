@@ -43,7 +43,7 @@ public class AdvertisementAdapter {
 
     private void logMessage(EventMessage message) {
         log.info("Received message with topic {} and id {}"
-                , message.getTopic(), message.getReferenceId());
+                , message.getQueue(), message.getReferenceId());
 
         if (message.getObject() instanceof Patient) {
             final Patient patient = (Patient) message.getObject();

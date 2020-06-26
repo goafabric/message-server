@@ -13,6 +13,6 @@ public class BannerSubscriber {
     @RabbitListener(queues = "banner.show")
     public void bannerShow(EventMessage message) {
         log.info("Received message with topic {} and id {}"
-                , message.getTopic(), message.getReferenceId());
+                , message.getQueue(), message.getReferenceId());
     }
 }

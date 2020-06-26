@@ -15,8 +15,8 @@ public class MessageBrokerConfiguration {
     public MessagePublisher messagePublisher(RabbitTemplate rabbitTemplate) {
         return message -> {
             log.info("Sending message with topic {} and id {}"
-                    , message.getTopic(), message.getReferenceId());
-            rabbitTemplate.convertAndSend(message.getTopic(), message);
+                    , message.getQueue(), message.getReferenceId());
+            rabbitTemplate.convertAndSend(message.getQueue(), message);
         };
     }
 

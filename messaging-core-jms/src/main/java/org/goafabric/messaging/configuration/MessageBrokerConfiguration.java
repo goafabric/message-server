@@ -40,8 +40,8 @@ public class MessageBrokerConfiguration {
     public MessagePublisher jmsMessagePublisher(JmsTemplate jmsTemplate) {
         return message -> {
             log.info("Sending message with topic {} and id {}"
-                    , message.getTopic(), message.getReferenceId());
-            jmsTemplate.convertAndSend(message.getTopic(), message);
+                    , message.getQueue(), message.getReferenceId());
+            jmsTemplate.convertAndSend(message.getQueue(), message);
             //jmsTemplate.send(message.getTopic(),
               //      session -> session.createObjectMessage(message));
         };

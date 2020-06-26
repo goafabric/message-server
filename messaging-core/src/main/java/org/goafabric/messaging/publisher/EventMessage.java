@@ -12,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventMessage implements Serializable {
-    private String topic;
+    private String queue;
     private String referenceId;
     private Object object;
 }
