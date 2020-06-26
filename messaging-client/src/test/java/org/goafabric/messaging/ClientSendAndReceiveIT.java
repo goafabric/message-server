@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.goafabric.MessageQueue;
 import org.goafabric.messaging.publisher.EventMessage;
 import org.goafabric.messaging.publisher.MessagePublisher;
+import org.goafabric.messaging.service.ClientService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +17,14 @@ import org.goafabric.messaging.dto.Patient;
 @Slf4j
 public class ClientSendAndReceiveIT {
     @Autowired
-    private MessagePublisher messagePublisher;
+    private ClientService clientService;
 
     @Test
     public void test() throws InterruptedException {
-        final Patient patient = Patient.builder()
-                .firstName("Homer").lastName("Simpson").build();
-
-        messagePublisher.publish(EventMessage.builder()
-                .queue(MessageQueue.PATIENT_OPEN).referenceId("100").object(patient).build());
-        messagePublisher.publish(EventMessage.builder()
-                .queue(MessageQueue.PRESCRIPTION_OPEN).referenceId("1000").build());
-        messagePublisher.publish(EventMessage.builder()
-                .queue(MessageQueue.PRESCRIPTION_CLOSE).referenceId("1000").build());
-        messagePublisher.publish(EventMessage.builder()
-                .queue(MessageQueue.PATIENT_OPEN).referenceId("100").build());
+        clientService.patientOpen();
+        clientService.prescriptionOpen();
+        clientService.prescriptionClose();
+        clientService.patientClose();
         Thread.sleep(2000);
     }
 }
