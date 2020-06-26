@@ -4,7 +4,7 @@ package org.goafabric;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageQueue {
+public final class MessageQueue {
     private MessageQueue() {
     }
 
