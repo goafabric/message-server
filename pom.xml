@@ -32,7 +32,7 @@
         <jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>
         <dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
 
-        <docker.image.prefix>docker.io/goafabric</docker.image.prefix>
+        <docker.registry>docker.io/goafabric</docker.registry>
     </properties>
 
     <profiles>

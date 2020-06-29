@@ -50,7 +50,7 @@
                                 <image>adoptopenjdk/openjdk11:debian-slim</image>
                             </from>
                             <to>
-                                <image>${docker.image.prefix}/${project.artifactId}</image>
+                                <image>${docker.registry}/${project.artifactId}</image>
                                 <tags>
                                     <tag>${project.version}</tag>
                                 </tags>
