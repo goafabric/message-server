@@ -1,0 +1,5 @@
+spring:
+  activemq:
+    packages:
+      trust-all: true
+    in-memory: true
