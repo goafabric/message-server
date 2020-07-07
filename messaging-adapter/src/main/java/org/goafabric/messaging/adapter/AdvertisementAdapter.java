@@ -32,8 +32,9 @@ public class AdvertisementAdapter {
     @RabbitListener(queues = MessageQueue.PRESCRIPTION_OPEN)
     public void prescriptionOpen(EventMessage message) {
         logMessage(message);
-        messagePublisher.publish(new EventMessage("banner.show",
-                message.getReferenceId(), null));
+        //send back banner.show
+        messagePublisher.publish(EventMessage.builder()
+                .queue("banner.show").referenceId(message.getReferenceId()).tenantId(message.getTenantId()).build());
     }
 
     @JmsListener(destination = MessageQueue.PRESCRIPTION_CLOSE)

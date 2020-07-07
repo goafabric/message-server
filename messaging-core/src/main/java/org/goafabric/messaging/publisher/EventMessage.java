@@ -15,5 +15,6 @@ import java.io.Serializable;
 public class EventMessage implements Serializable {
     private String queue;
     private String referenceId;
+    private String tenantId;
     private Object object;
 }

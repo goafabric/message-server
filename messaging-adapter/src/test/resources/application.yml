@@ -3,3 +3,9 @@ spring:
     packages:
       trust-all: true
     in-memory: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: ENC(Itfox59TB8p1bKyrBzwRAdwe1I7lBTngu0x0mfYq6Kbbjp63jlRMfECzFFtm1uHR)

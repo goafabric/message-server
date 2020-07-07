@@ -20,6 +20,7 @@ public final class MessageQueue {
         queues.add(PATIENT_CLOSE);
         queues.add(PRESCRIPTION_OPEN);
         queues.add(PRESCRIPTION_CLOSE);
+        queues.add(BANNER_SHOW);
         return queues;
     }
 }

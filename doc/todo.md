@@ -1,8 +1,8 @@
-password encryption
-Artemis
+- Tests for RabbitMQ (may need TestContainers)
+- Queue Creation Startup RabbitMQ not Available Problem (could be mitigated with on the fly queues)
+- Frontend Demo with Websockets
 
----
-- Create AMQP Queues Programmtically
-- Object send without Serialisable
+- Object send without Serialisable (may need JacksonMapper)
 
+- Artemis
 - Kafka
