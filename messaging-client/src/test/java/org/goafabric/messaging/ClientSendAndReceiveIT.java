@@ -17,7 +17,6 @@ public class ClientSendAndReceiveIT {
     private ClientService clientService;
 
     @Test
-    @Ignore
     public void test()  {
         clientService.patientOpen();
         clientService.prescriptionOpen();
