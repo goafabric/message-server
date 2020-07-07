@@ -1,28 +1,42 @@
 version: "3.7"
 
 services:
-  activemq:
-    container_name: activemq-${STACK_NAME}
-    image: rmohr/activemq:latest
+
+  #  activemq:
+  #    container_name: activemq-${STACK_NAME}
+  #    image: rmohr/activemq:latest
+  #    restart: 'no'
+  #    ports:
+  #      - 61616:61616
+  #      - 8161:8161
+  #    networks:
+  #      - messaging-net
+
+  rabbitmq:
+    container_name: rabbitmq-${STACK_NAME}
+    image: rabbitmq:3.8.5-management
     restart: 'no'
     ports:
-      - 61616:61616
-      - 8161:8161
+      - 15672:15672
+      - 5672:5672
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
     networks:
       - messaging-net
 
   messaging-client:
     depends_on:
-    - activemq
+      - rabbitmq
     container_name: messsaging-client-${STACK_NAME}
     image: goafabric/messaging-client:1.0.0-SNAPSHOT
-    restart: 'no'
+    restart: 'on-failure'
     ports:
       - 8080:8080
     environment:
       - TZ=Europe/Berlin
-      - spring.activemq.in-memory=false
       - spring.activemq.broker-url=tcp://activemq-messaging-stack:61616
+      - spring.rabbitmq.host=rabbitmq-messaging-stack
 
     healthcheck:
       test: "curl -f http://localhost:8080/actuator/health || exit 1"
@@ -38,15 +52,23 @@ services:
 
   messaging-adapter:
     depends_on:
-      - activemq
+      - rabbitmq
     container_name: messsaging-adapter-${STACK_NAME}
     image: goafabric/messaging-adapter:1.0.0-SNAPSHOT
-    restart: 'no'
-    #ports:
-    #  - 8080:8080
+    restart: 'on-failure'
+    ports:
+      - 8090:8090
     environment:
       - TZ=Europe/Berlin
       - spring.activemq.broker-url=tcp://activemq-messaging-stack:61616
+      - spring.rabbitmq.host=rabbitmq-messaging-stack
+
+    healthcheck:
+      test: "curl -f http://localhost:8090/actuator/health || exit 1"
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
     volumes:
       - tmp:/tmp
 

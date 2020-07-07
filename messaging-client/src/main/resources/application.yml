@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 20
+
+spring:
+  activemq:
+    packages:
+      trust-all: true
+    #in-memory: true
+    user: admin
+    password: ENC(Itfox59TB8p1bKyrBzwRAdwe1I7lBTngu0x0mfYq6Kbbjp63jlRMfECzFFtm1uHR)
+    broker-url: tcp://localhost:61616
+
+  rabbitmq:
+   host: localhost
+   port: 5672
+   username: admin
+   password: ENC(Itfox59TB8p1bKyrBzwRAdwe1I7lBTngu0x0mfYq6Kbbjp63jlRMfECzFFtm1uHR)

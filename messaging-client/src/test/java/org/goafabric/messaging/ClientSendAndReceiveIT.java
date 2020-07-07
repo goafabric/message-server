@@ -1,16 +1,13 @@
 package org.goafabric.messaging;
 
 import lombok.extern.slf4j.Slf4j;
-import org.goafabric.MessageQueue;
-import org.goafabric.messaging.publisher.EventMessage;
-import org.goafabric.messaging.publisher.MessagePublisher;
 import org.goafabric.messaging.service.ClientService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.goafabric.messaging.dto.Patient;
 
 @SpringBootTest//(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @RunWith(SpringRunner.class)
@@ -20,11 +17,10 @@ public class ClientSendAndReceiveIT {
     private ClientService clientService;
 
     @Test
-    public void test() throws InterruptedException {
+    public void test()  {
         clientService.patientOpen();
         clientService.prescriptionOpen();
         clientService.prescriptionClose();
         clientService.patientClose();
-        Thread.sleep(2000);
     }
 }
