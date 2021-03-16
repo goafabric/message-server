@@ -29,7 +29,7 @@ services:
     depends_on:
       - rabbitmq
     container_name: messsaging-client-${STACK_NAME}
-    image: goafabric/messaging-client${ARCH_SUFFIX}:1.0.0-SNAPSHOT
+    image: goafabric/messaging-client${ARCH_SUFFIX}:1.0.1-SNAPSHOT
     restart: 'on-failure'
     ports:
       - 8080:8080
@@ -54,7 +54,7 @@ services:
     depends_on:
       - rabbitmq
     container_name: messsaging-adapter-${STACK_NAME}
-    image: goafabric/messaging-adapter${ARCH_SUFFIX}:1.0.0-SNAPSHOT
+    image: goafabric/messaging-adapter${ARCH_SUFFIX}:1.0.1-SNAPSHOT
     restart: 'on-failure'
 #    ports:
 #      - 8090:8090
